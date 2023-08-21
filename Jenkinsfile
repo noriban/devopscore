@@ -1,5 +1,9 @@
+def frontendImage="pandaacademy/frontend"
+def backendImage="pandaacademy/backend"
 def backendDockerTag=""
 def frontendDockerTag=""
+def dockerRegistry=""
+def registryCredentials="Dockerhub"
 
 pipeline {
     agent {
