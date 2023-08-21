@@ -57,15 +57,15 @@ stages {
             sh "python3 -m pytest test/selenium/frontendTest.py"
         }
     }
-    // stage('Run terraform') {
-    //     steps {
-    //         dir('Terraform') {                
-    //             git branch: 'main', url: 'https://github.com/Panda-Academy-Core-2-0/Terraform'
-    //             withAWS(credentials:'AWS', region: 'us-east-1') {
-    //                     sh 'terraform init && terraform apply -auto-approve -var-file="terraform.tfvars"'
-    //             } 
-    //         }
-    //     }
-    // }
+    stage('Run terraform') {
+        steps {
+            dir('Terraform') {                
+                git branch: 'main', url: 'https://github.com/noriban/panda_terraform.git'
+                withAWS(credentials:'AWS', region: 'us-east-1') {
+                        sh 'terraform init && terraform apply -auto-approve -var-file="terraform.tfvars"'
+                } 
+            }
+        }
+    }
 }
 }
