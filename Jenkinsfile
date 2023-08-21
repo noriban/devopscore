@@ -1,5 +1,5 @@
-def frontendImage="noriban/frontend"
-def backendImage="noriban/backend"
+def frontendImage="noriban/devopscorefront"
+def backendImage="noriban/devopscoreback"
 def backendDockerTag=""
 def frontendDockerTag=""
 def dockerRegistry=""
