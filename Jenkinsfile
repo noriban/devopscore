@@ -4,6 +4,7 @@ def backendDockerTag=""
 def frontendDockerTag=""
 def dockerRegistry=""
 def registryCredentials="Dockerhub"
+def dockerTag=""
 
 pipeline {
     agent {
