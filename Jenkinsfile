@@ -12,7 +12,6 @@ pipeline {
     tools {
         terraform 'terraform'
     }
-}
 
 // parameters {
 //   string(description: 'backend docker image tag', name: 'backendDockerTag' defaultValue: '')
@@ -68,4 +67,5 @@ stages {
     //         }
     //     }
     // }
+}
 }
