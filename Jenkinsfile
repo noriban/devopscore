@@ -71,11 +71,17 @@ pipeline {
                 steps {
                     script {
                         sh "ansible-galaxy install -r requirements.yml"
-                        withEnv(["FRONTEND_IMAGE=$frontendImage:$frontendDockerTag", 
-                                    "BACKEND_IMAGE=$backendImage:$backendDockerTag"]) {
-                            ansiblePlaybook inventory: 'inventory', playbook: 'playbook.yml'
-                        }
+                    withEnv(["FRONTEND_IMAGE=$frontendImage:$frontendDockerTag", 
+                                "BACKEND_IMAGE=$backendImage:$backendDockerTag"]) {
+                        ansiblePlaybook inventory: 'inventory', playbook: 'playbook.yml'
+                    }
                 }
+            }
+        }
+        post {
+            always {
+                sh "docker compose down"
+                cleanWs()
             }
         }
     }
